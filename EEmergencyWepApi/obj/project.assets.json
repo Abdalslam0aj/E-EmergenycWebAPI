@@ -58,11 +58,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\BackEndServer\\EEmergencyWepApi\\EEmergencyWepApi\\EEmergencyWepApi.csproj",
+      "projectUniqueName": "D:\\BackEndServer\\EEmergencyWepApi\\E-EmergenycWebAPI\\EEmergencyWepApi\\EEmergencyWepApi.csproj",
       "projectName": "EEmergencyWepApi",
-      "projectPath": "D:\\BackEndServer\\EEmergencyWepApi\\EEmergencyWepApi\\EEmergencyWepApi.csproj",
+      "projectPath": "D:\\BackEndServer\\EEmergencyWepApi\\E-EmergenycWebAPI\\EEmergencyWepApi\\EEmergencyWepApi.csproj",
       "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-      "outputPath": "D:\\BackEndServer\\EEmergencyWepApi\\EEmergencyWepApi\\obj\\",
+      "outputPath": "D:\\BackEndServer\\EEmergencyWepApi\\E-EmergenycWebAPI\\EEmergencyWepApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -115,7 +115,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
       }
     }
   }
