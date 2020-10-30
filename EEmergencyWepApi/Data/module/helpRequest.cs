@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace EEmergencyWebAPI.Data
 {
     public class HelpRequest {
+       
 
         string phoneNumber;
         string longtitude;
