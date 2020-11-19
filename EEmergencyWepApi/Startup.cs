@@ -12,6 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Identity;
 
 namespace EEmergencyWepApi
 {
@@ -27,8 +28,9 @@ namespace EEmergencyWepApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            
             services.AddDbContext<ConctionDbClass>(options =>
-              options.UseSqlServer(Configuration.GetConnectionString("MyConnection")));
+              options.UseSqlServer(Configuration.GetConnectionString("MyConnection")));          
             services.AddControllers();
         }
 
