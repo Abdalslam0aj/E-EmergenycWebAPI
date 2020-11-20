@@ -23,7 +23,7 @@ namespace EEmergencyWepApi.Data.module
         public DbSet<HelpRequestAssigned> HelpRequestAssigned { set; get; }
         public DbSet<Hospital> Hospital { set; get; }
         public DbSet<TeamMembers> TeamMembers { set; get; }
-        public DbSet<ParamedicTeams> ParamedicTeams { set; get; }
+        public DbSet<ParamedicTeam> ParamedicTeams { set; get; }
         
     }
 }

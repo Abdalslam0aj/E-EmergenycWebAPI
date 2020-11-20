@@ -4,18 +4,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 
-
 namespace EEmergencyWepApi.Models
 {
-    public class Hospital
+    public class ParamedicTeam
     {
         [Key]
-        public int id { set; get; }
+        int teamNumber { set; get; }
 
-        public string name { set; get; }
+        int deploymentLocation { set; get; }
 
-        public double latitude { set; get; }
-
-        public double longitude { set; get; }
     }
 }
