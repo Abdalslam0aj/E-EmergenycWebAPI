@@ -9,8 +9,8 @@ namespace EEmergencyWepApi.Models
     public class TeamMembers
     {
         [Key]
-        int teamNumber { set; get; }
+        public int teamNumber { set; get; }
 
-        string phoneNumber { set; get; }
+        public string phoneNumber { set; get; }
     }
 }

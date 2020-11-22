@@ -9,9 +9,9 @@ namespace EEmergencyWepApi.Models
     public class ParamedicTeam
     {
         [Key]
-        int teamNumber { set; get; }
+        public int teamNumber { set; get; }
 
-        int deploymentLocation { set; get; }
+        public int deploymentLocation { set; get; }
 
     }
 }

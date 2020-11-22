@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30517.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EEmergencyWepApi", "EEmergencyWepApi\EEmergencyWepApi.csproj", "{71965373-240D-4934-B50B-3B3B9F37D9C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EEmergencyWebApi", "EEmergencyWepApi\EEmergencyWebApi.csproj", "{71965373-240D-4934-B50B-3B3B9F37D9C7}"
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "EEmergencyAdmin", "EEmergencyAdmin\EEmergencyAdmin.vbproj", "{49BE5AF5-012E-438A-845A-6B794C48A8B1}"
 EndProject

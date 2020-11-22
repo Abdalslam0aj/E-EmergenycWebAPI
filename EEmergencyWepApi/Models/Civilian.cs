@@ -23,5 +23,7 @@ namespace EEmergencyWepApi.Models
         public string email { set; get; }
 
         public string medicalCondition { set; get; }
+
+        public string notificationToken { set; get; }
     }
 }

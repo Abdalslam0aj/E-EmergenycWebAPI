@@ -9,18 +9,17 @@ namespace EEmergencyWepApi.Models
     public class Paramedic
     {
         [Key]
+        public string phoneNumber { set; get; }
 
-        string phoneNumber { set; get; }
+        public string password { set; get; }
 
-        string password { set; get; }
+        public string NIDN { set; get; }
 
-        string NIDN { set; get; }
+        public string fullName { set; get; }
 
-        string fullName { set; get; }
+        public string status { set; get; }
 
-        string status { set; get; }
-
-        string notificationToken { set; get; }
+        public string notificationToken { set; get; }
 
     }
 }

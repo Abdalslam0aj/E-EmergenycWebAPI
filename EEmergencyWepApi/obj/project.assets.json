@@ -8980,9 +8980,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\BackEndServer\\EEmergencyWepApi\\E-EmergenycWebAPI\\EEmergencyWepApi\\EEmergencyWepApi.csproj",
-      "projectName": "EEmergencyWepApi",
-      "projectPath": "D:\\BackEndServer\\EEmergencyWepApi\\E-EmergenycWebAPI\\EEmergencyWepApi\\EEmergencyWepApi.csproj",
+      "projectUniqueName": "D:\\BackEndServer\\EEmergencyWepApi\\E-EmergenycWebAPI\\EEmergencyWepApi\\EEmergencyWebApi.csproj",
+      "projectName": "EEmergencyWebApi",
+      "projectPath": "D:\\BackEndServer\\EEmergencyWepApi\\E-EmergenycWebAPI\\EEmergencyWepApi\\EEmergencyWebApi.csproj",
       "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
       "outputPath": "D:\\BackEndServer\\EEmergencyWepApi\\E-EmergenycWebAPI\\EEmergencyWepApi\\obj\\",
       "projectStyle": "PackageReference",

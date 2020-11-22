@@ -13,7 +13,16 @@ using Microsoft.Extensions.Configuration;
 
 namespace EEmergencyWepApi.Controllers
 {
-    
+    public class Login {
+        public string phoneNumber { set; get; }
+        public string password { set; get; }
+        public string notiToken { set; get; }
+        public Login() {
+            this.phoneNumber = phoneNumber;
+            this.password = password;
+            this.notiToken = notiToken;
+        }
+    }
     [ApiController]
     [Route("[controller]")]
     public class LoginController : ControllerBase
@@ -24,32 +33,20 @@ namespace EEmergencyWepApi.Controllers
         }
         
          [HttpPost]
-        public async Task<ActionResult<string>> loginAsync([FromBody] string content)
+        public async Task<ActionResult<Civilian>> login([FromForm]Login loginInformation)
         {
-
+            string phoneNumber= loginInformation.phoneNumber;
+            string password= loginInformation.password;
+            Civilian civilianLogin = new Civilian();
+            civilianLogin.phoneNumber = phoneNumber;
+            civilianLogin.password = password;
             
-
-            // ConctionDbClass db = new ConctionDbClass();
-            Civilian c= new Civilian();
-            c.FullName = "ahmad";
-            c.phoneNumber = "0487";
-            c.medicalCondition = "Retared";
-            c.NIDN = "2000064";
-            c.bloodType = "O+";
-            c.birthDate = "2/jan/19";
-            c.email = "abood@.com";
-            c.password = "12345679";
-           
-           
-         //  db.Add(c);
-          //  db.SaveChanges();
-            bool a;
-            a = true;
-
-          
-          
-
-            return content;
+            Civilian foundCivilian= db.Civilian.Find(civilianLogin.phoneNumber);
+            if (foundCivilian != null) { 
+            
+            
+            }
+            return foundCivilian;
 
         }
     }
