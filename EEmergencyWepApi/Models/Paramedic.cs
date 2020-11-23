@@ -21,5 +21,7 @@ namespace EEmergencyWepApi.Models
 
         public string notificationToken { set; get; }
 
+        public int team { set; get; }
+
     }
 }

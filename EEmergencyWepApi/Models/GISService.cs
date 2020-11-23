@@ -27,11 +27,9 @@ namespace EEmergencyWepApi.Models
         public ParamedicTeam findNearestResponseTeam (Location helpRequestLocation) {
 
             List<DCD> a= db.DCD.ToList();
-            foreach (DCD i in a) {
-             
-            }
-
-            return new ParamedicTeam();
+            DCD dcd = db.DCD.Find(1);
+            ParamedicTeam team = db.ParamedicTeams.First(e => e.deploymentLocation == 1);
+            return team;
         }
 
         private ParamedicTeam nearestDistence(Location cvilianLocation,Location paramedicLocation) {

@@ -31,7 +31,7 @@ namespace EEmergencyWebApi.Models
             List<TeamMembers> teamMembers = db.TeamMembers.Where(e => e.teamNumber == teamAssigned.teamNumber).ToList();
             foreach (var t in teamMembers) {
                 Paramedic paramedic= db.Paramedic.Find(t.phoneNumber);
-                paramedic.status = "BUSY/AVAILABLE";
+                paramedic.status = "BUSY";
                 db.Paramedic.Update(paramedic);
                 bool d= await sendNotificatonAsync(paramedic.notificationToken, "", "");              
             }
