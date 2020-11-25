@@ -9,7 +9,7 @@ namespace EEmergencyWepApi.Models
     {
        // public Location() { }
        
-        public Location(double longitude, double latitude) {
+        public Location( double latitude,double longitude) {
             this.latitude = latitude;
             this.longitude = longitude;
         }

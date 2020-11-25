@@ -11,10 +11,37 @@ using System.Xml;
 
 namespace EEmergencyWepApi.Models
 {
-    class distance {
-    
-     
-    
+
+    public class Distance
+    {
+        public string text { get; set; }
+        public int value { get; set; }
+    }
+
+    public class Duration
+    {
+        public string text { get; set; }
+        public int value { get; set; }
+    }
+
+    public class Element
+    {
+        public Distance distance { get; set; }
+        public Duration duration { get; set; }
+        public string status { get; set; }
+    }
+
+    public class Row
+    {
+        public IList<Element> elements { get; set; }
+    }
+
+    public class Matrix
+    {
+        public IList<string> destination_addresses { get; set; }
+        public IList<string> origin_addresses { get; set; }
+        public IList<Row> rows { get; set; }
+        public string status { get; set; }
     }
     public class GISService
     {
@@ -26,39 +53,44 @@ namespace EEmergencyWepApi.Models
 
         public ParamedicTeam findNearestResponseTeam (Location helpRequestLocation) {
 
-            List<DCD> a= db.DCD.ToList();
-            DCD dcd = db.DCD.Find(1);
-            ParamedicTeam team = db.ParamedicTeams.First(e => e.deploymentLocation == 1);
+            List<DCD> dcd= db.DCD.ToList();           
+            Dictionary<int, DCD> pairs = new Dictionary<int, DCD> { };
+            
+            foreach (var d in dcd) {
+                Location dcdlocation = new Location(d.latitude,d.longitude);
+                int dcdToHelpDuration = nearestDuration(helpRequestLocation, dcdlocation);
+                pairs.Add(dcdToHelpDuration,d);                
+            }
+            
+            int duration= pairs.Keys.Min();
+            DCD lockedDCD=pairs[duration];
+            ParamedicTeam team = db.ParamedicTeams.First(e => e.deploymentLocation == lockedDCD.id);
             return team;
         }
 
-        private ParamedicTeam nearestDistence(Location cvilianLocation,Location paramedicLocation) {
+        private int nearestDuration(Location cvilianLocation,Location paramedicLocation) {
 
-            string origin=paramedicLocation.latitude+","+paramedicLocation.longitude;
-            string destination= cvilianLocation.latitude + "," + cvilianLocation.longitude;
-            
-                string url = @"http://maps.googleapis.com/maps/api/distancematrix/json?origins="
-                   + origin + "&amp;destinations=" + destination + "&amp;sensor=false&key=AIzaSyAy_3-4Wn5uKqeutmQRq9PsCm-aS5emGdE";
+            string origin=paramedicLocation.latitude+", "+paramedicLocation.longitude;
+            string destination= cvilianLocation.latitude + ", " + cvilianLocation.longitude;
+            string url = "https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins="+origin+ "&destinations=" + destination+ "&region=jo&key=AIzaSyDa7ifKIOyGpc4AJugDeoNyxZIXzyjkSEY";
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            WebResponse response = request.GetResponse();
+            Matrix j=new Matrix();
+            int duration;
+            using (StreamReader Reader = new StreamReader(response.GetResponseStream())) {
+                 j = JsonConvert.DeserializeObject<Matrix>(Reader.ReadToEnd());
+            }
 
-                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-                WebResponse response = request.GetResponse();
-                Stream dataStream = response.GetResponseStream();
-                StreamReader sreader = new StreamReader(dataStream);
-                string responsereader = sreader.ReadToEnd();
-                response.Close();
-
-                DataSet ds = new DataSet();
-                 var dd=response.ToString();
-                 var j= JsonConvert.DeserializeObject(dd);
-               
-              // JsonReader(response) ;
-                
-               
-            
+            if (j.rows.First().elements.First().status == "OK") {
+                Console.WriteLine(j.rows.First().elements.First().duration.text);
+                duration = j.rows.First().elements.First().duration.value;
+            }
+            else {
+                duration = 0;
+            }
             
 
-        
-            return new ParamedicTeam();
+            return duration;
         }
 
         private ParamedicTeam fastestRoute()
