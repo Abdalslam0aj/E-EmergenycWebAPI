@@ -7,6 +7,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using EEmergencyWebApi.Models;
+using EEmergencyWebApi.Models.Const;
 using EEmergencyWepApi.Data.module;
 using EEmergencyWepApi.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -25,18 +26,23 @@ namespace EEmergencyWepApi.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<bool>> reciveHelpRequestAsync([FromForm] HelpRequest helpRequest) {
+        public async Task<ActionResult<string>> reciveHelpRequestAsync([FromForm] HelpRequest helpRequest) {
+            helpRequest.status = HelpStatus.running;
+            var requestFinished=db.HelpRequest.Where(e=>e.civilianPhoneNumber==helpRequest.civilianPhoneNumber&&e.status!=HelpStatus.finished);
+            if (requestFinished.Count()==0)
+            {
+                db.HelpRequest.Add(helpRequest);
+                db.SaveChanges();
+                //TO DO add Recived help request and call assgin then save in db
+                RecivedHelpRequest recivedHelp = new RecivedHelpRequest(helpRequest, db);
+                HelpRequestAssigned requestAssigned = await recivedHelp.assigenHelpRequestAsync();
+                db.HelpRequestAssigned.Add(requestAssigned);
+                db.SaveChanges();
+                return helpRequest.status;
+            }
 
-            db.HelpRequest.Add(helpRequest);
-            db.SaveChanges();
-            //TO DO add Recived help request and call assgin then save in db
-            RecivedHelpRequest recivedHelp = new RecivedHelpRequest(helpRequest,db);
-            HelpRequestAssigned requestAssigned= await recivedHelp.assigenHelpRequestAsync();
-            db.HelpRequestAssigned.Add(requestAssigned);
-            db.SaveChanges();
 
-
-            return true;
+            return "fault";
            
         }
     }

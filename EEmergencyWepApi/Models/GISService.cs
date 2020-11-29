@@ -1,4 +1,5 @@
-﻿using EEmergencyWepApi.Data.module;
+﻿using EEmergencyWebApi.Models.Const;
+using EEmergencyWepApi.Data.module;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -62,9 +63,17 @@ namespace EEmergencyWepApi.Models
                 pairs.Add(dcdToHelpDuration,d);                
             }
             
-            int duration= pairs.Keys.Min();
-            DCD lockedDCD=pairs[duration];
-            ParamedicTeam team = db.ParamedicTeams.First(e => e.deploymentLocation == lockedDCD.id);
+            int chosenDCD= pairs.Keys.Min();
+            DCD lockedDCD=pairs[chosenDCD];
+            ParamedicTeam team = db.ParamedicTeams.First(e => e.deploymentLocation==lockedDCD.id && e.status==TeamStatus.available);
+            if (team == null) {
+                chosenDCD = pairs.Keys.Min();
+                lockedDCD = pairs[chosenDCD++];
+                team = db.ParamedicTeams.First(e => e.deploymentLocation == lockedDCD.id && e.status == TeamStatus.available);
+            }
+            team.status = TeamStatus.onTheWay;
+            db.ParamedicTeams.Update(team);
+            
             return team;
         }
 

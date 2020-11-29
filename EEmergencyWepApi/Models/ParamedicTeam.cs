@@ -13,5 +13,7 @@ namespace EEmergencyWepApi.Models
 
         public int deploymentLocation { set; get; }
 
+        public string status { set; get; }
+
     }
 }
