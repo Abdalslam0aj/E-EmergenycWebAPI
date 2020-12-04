@@ -23,20 +23,22 @@ namespace EEmergencyWebApi.Models
         }
 
         public async Task<HelpRequestAssigned> assigenHelpRequestAsync() {
-            GISService gISService=new GISService(db);
+            GISService gISService = new GISService(db);
             Location location = new Location(helpRequest.latitude,helpRequest.longitude);            
             ParamedicTeam teamAssigned = gISService.findNearestResponseTeam(location);
-            
+            Console.WriteLine("help request: "+helpRequest.id+" being located By GISServices the nerast response team ");
+
             HelpRequestAssigned helpRequestAssigned = new HelpRequestAssigned();
             helpRequestAssigned.id = helpRequest.id;
             helpRequestAssigned.teamNumber = teamAssigned.teamNumber;
-
+            Console.WriteLine(helpRequestAssigned.teamNumber+" is the team chosen for help request "+helpRequest.id);
             List<TeamMembers> teamMembers = db.TeamMembers.Where(e => e.teamNumber == teamAssigned.teamNumber).ToList();
             foreach (var t in teamMembers) {               
                 Paramedic paramedic= db.Paramedic.Find(t.phoneNumber);
                 bool d = await sendNotificatonAsync(paramedic.notificationToken, "Civilian needs help", "you been assigned to help");
                 paramedic.status = d.ToString();
-               
+                Console.WriteLine("notifing team members NT:"+ paramedic.notificationToken+" notification sent ? "+d);
+
 
                 db.Paramedic.Update(paramedic);              
                 

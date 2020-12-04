@@ -21,24 +21,33 @@ namespace EEmergencyWepApi.Controllers
     public class ReciveHelpRequestController : ControllerBase
     {
         ConctionDbClass db;
+        
         public ReciveHelpRequestController(ConctionDbClass db) {
             this.db = db;
         }
 
         [HttpPost]
         public async Task<ActionResult<string>> reciveHelpRequestAsync([FromForm] HelpRequest helpRequest) {
+            
             helpRequest.status = HelpStatus.running;
+            //To do check for location with the same area
             var requestFinished=db.HelpRequest.Where(e=>e.civilianPhoneNumber==helpRequest.civilianPhoneNumber&&e.status!=HelpStatus.finished);
+            
             if (requestFinished.Count()==0)
             {
+                Console.WriteLine("help rquest is new and assigning sequence statrted arrived on "+ DateTime.Now);
+                helpRequest.timeOfArrivel = DateTime.Now;
                 db.HelpRequest.Add(helpRequest);
                 db.SaveChanges();
+                Console.WriteLine("help rquest is saved in running state ");
                 //TO DO add Recived help request and call assgin then save in db
                 RecivedHelpRequest recivedHelp = new RecivedHelpRequest(helpRequest, db);
                 HelpRequestAssigned requestAssigned = await recivedHelp.assigenHelpRequestAsync();
                 db.HelpRequestAssigned.Add(requestAssigned);
                 db.SaveChanges();
+                Console.WriteLine("help request is assgiend to a parmedic team ");
                 return helpRequest.status;
+                
             }
 
 

@@ -62,9 +62,11 @@ namespace EEmergencyWepApi.Models
                 int dcdToHelpDuration = nearestDuration(helpRequestLocation, dcdlocation);
                 pairs.Add(dcdToHelpDuration,d);                
             }
-            
+            Console.WriteLine("all available DCD trafic and shortest route is located ");
+
             int chosenDCD= pairs.Keys.Min();
             DCD lockedDCD=pairs[chosenDCD];
+            Console.WriteLine("the fastest duration DCD is chosen: "+lockedDCD.name+" with arivel duration "+ pairs.Keys.Min());
             ParamedicTeam team = db.ParamedicTeams.First(e => e.deploymentLocation==lockedDCD.id && e.status==TeamStatus.available);
             if (team == null) {
                 chosenDCD = pairs.Keys.Min();
@@ -73,7 +75,7 @@ namespace EEmergencyWepApi.Models
             }
             team.status = TeamStatus.onTheWay;
             db.ParamedicTeams.Update(team);
-            
+            Console.WriteLine("found the response team:  "+team.teamNumber);
             return team;
         }
 
