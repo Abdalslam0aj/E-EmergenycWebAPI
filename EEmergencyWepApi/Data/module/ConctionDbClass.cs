@@ -1,4 +1,5 @@
-﻿using EEmergencyWepApi.Models;
+﻿using EEmergencyWebApi.Models;
+using EEmergencyWepApi.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -24,10 +25,13 @@ namespace EEmergencyWepApi.Data.module
         public DbSet<Hospital> Hospital { set; get; }
         public DbSet<TeamMembers> TeamMembers { set; get; }
         public DbSet<ParamedicTeam> ParamedicTeams { set; get; }
-        public DbSet<ParamedicTeam> RequestLog { set; get; }
-        public DbSet<ParamedicTeam> TeamsAssigendLog { set; get; }
-        
-            
+        public DbSet<RequestLog> RequestLog { set; get; }
+        public DbSet<TeamsAssigendLog> TeamsAssigendLog { set; get; }
+        public DbSet<User> Users { set; get; }
+
+       
+
+
 
     }
 }
