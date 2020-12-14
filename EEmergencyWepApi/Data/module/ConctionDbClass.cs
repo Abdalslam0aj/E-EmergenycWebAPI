@@ -24,6 +24,10 @@ namespace EEmergencyWepApi.Data.module
         public DbSet<Hospital> Hospital { set; get; }
         public DbSet<TeamMembers> TeamMembers { set; get; }
         public DbSet<ParamedicTeam> ParamedicTeams { set; get; }
+        public DbSet<ParamedicTeam> RequestLog { set; get; }
+        public DbSet<ParamedicTeam> TeamsAssigendLog { set; get; }
         
+            
+
     }
 }

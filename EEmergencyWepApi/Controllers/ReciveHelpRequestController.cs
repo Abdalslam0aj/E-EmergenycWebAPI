@@ -31,7 +31,7 @@ namespace EEmergencyWepApi.Controllers
             
             helpRequest.status = HelpStatus.running;
             //To do check for location with the same area
-            var requestFinished=db.HelpRequest.Where(e=>e.civilianPhoneNumber==helpRequest.civilianPhoneNumber&&e.status!=HelpStatus.finished);
+            var requestFinished=db.HelpRequest.Where(e=>e.civilianPhoneNumber==helpRequest.civilianPhoneNumber);
             
             if (requestFinished.Count()==0)
             {
@@ -51,7 +51,7 @@ namespace EEmergencyWepApi.Controllers
             }
 
 
-            return "fault";
+            return "helpRequestExists";
            
         }
     }

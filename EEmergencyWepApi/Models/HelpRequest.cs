@@ -22,7 +22,10 @@ namespace EEmergencyWepApi.Models
         public string description { set; get; }
 
         public DateTime timeOfArrivel { set; get; }
+
         public DateTime timeOfEnd { set; get; }
+
+        public int numberOfHumans { set; get; }
 
 
     }
