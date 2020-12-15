@@ -28,7 +28,9 @@ namespace EEmergencyWepApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            
+
+
+            services.AddControllersWithViews();
             services.AddDbContext<ConctionDbClass>(options =>
               options.UseSqlServer(Configuration.GetConnectionString("MyConnection")));          
             services.AddControllers();
@@ -43,7 +45,8 @@ namespace EEmergencyWepApi
             }
 
             app.UseHttpsRedirection();
-
+           
+           
             app.UseRouting();
 
             app.UseAuthorization();

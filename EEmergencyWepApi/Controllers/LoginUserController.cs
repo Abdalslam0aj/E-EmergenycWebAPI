@@ -28,39 +28,54 @@ namespace EEmergencyWepApi.Controllers
     public class LoginUserController : ControllerBase
     {
         ConctionDbClass db;
-        public LoginUserController(ConctionDbClass db) { 
-        this.db=db;
+        public LoginUserController(ConctionDbClass db) {
+            this.db = db;
         }
-
+        
         [HttpPost]
         public ActionResult<User> login([FromForm] Login loginInformation)
         {
 
             string phoneNumber = loginInformation.phoneNumber;
+            string password = loginInformation.password;
             User loginRequester = db.Users.Find(phoneNumber);
+            
             if (loginRequester != null)
-            {//To Do Login
+            {
+                if (loginRequester.userType == "paramedic") {
+
+                    Paramedic foundParamedic = db.Paramedic.Find(phoneNumber);
+                    if (foundParamedic.password == password)
+                    {
+                        if(loginInformation.notiToken!=null)
+                        foundParamedic.notificationToken = loginInformation.notiToken;
+                        db.Paramedic.Update(foundParamedic);
+                        return loginRequester;
+                    }
+                    else
+                        return new User();
+
+
+
+                } else {
+                    Civilian foundCivilian = db.Civilian.Find(phoneNumber);
+                    if (foundCivilian.password == password)
+                        return loginRequester;
+                    else
+                        return new User();
+                }
 
 
 
             }
             else {
 
-                return null;
+                return new User();
             
-            }
-            string password = loginInformation.password;
-            Civilian civilianLogin = new Civilian();
-            civilianLogin.phoneNumber = phoneNumber;
-            civilianLogin.password = password;
+            }          
 
-            Civilian foundCivilian = db.Civilian.Find(civilianLogin.phoneNumber);
-            if (foundCivilian != null)
-            {
-
-
-            }
-            return foundCivilian;
+           
+          
 
         }
     }

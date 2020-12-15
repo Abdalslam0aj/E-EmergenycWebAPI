@@ -334,3 +334,4 @@ D:\BackEndServer\EEmergencyWepApi\E\E-EmergenycWebAPI\EEmergencyWepApi\obj\Debug
 D:\BackEndServer\EEmergencyWepApi\E\E-EmergenycWebAPI\EEmergencyWepApi\obj\Debug\netcoreapp3.1\EEmergencyWebApi.Views.pdb
 D:\BackEndServer\EEmergencyWepApi\E\E-EmergenycWebAPI\EEmergencyWepApi\obj\Debug\netcoreapp3.1\EEmergencyWebApi.csproj.CopyComplete
 D:\BackEndServer\EEmergencyWepApi\E\E-EmergenycWebAPI\EEmergencyWepApi\obj\Debug\netcoreapp3.1\EEmergencyWebApi.genruntimeconfig.cache
+D:\BackEndServer\EEmergencyWepApi\E\E-EmergenycWebAPI\EEmergencyWepApi\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs

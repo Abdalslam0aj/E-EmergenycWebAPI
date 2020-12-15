@@ -9,7 +9,7 @@ namespace EEmergencyWepApi.Models
     public class Civilian
     {
         [Key]
-       public string phoneNumber { set; get; }
+        public string phoneNumber { set; get; }
 
         public string password { set; get; }
 
@@ -18,7 +18,7 @@ namespace EEmergencyWepApi.Models
 
         public string bloodType { set; get; }
 
-        public string birthDate { set; get; }
+        public DateTime birthDate { set; get; }
 
         public string email { set; get; }
 

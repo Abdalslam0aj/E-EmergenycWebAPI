@@ -9,9 +9,9 @@ namespace EEmergencyWebApi.Models
     public class User
     {
         [Key]
-        string phoneNumber { set; get; }
+        public string phoneNumber { set; get; }
 
-        string userType { set; get; }
+        public string userType { set; get; }
 
     }
 }
