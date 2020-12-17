@@ -52,8 +52,8 @@ namespace EEmergencyWepApi.Models
             this.db = db;
         }
 
-        public ParamedicTeam findNearestResponseTeam (Location helpRequestLocation) {
-
+        public List<ParamedicTeam> findNearestResponseTeam (Location helpRequestLocation,int numberOfPatient) {
+            numberOfPatient = 1;
             List<DCD> dcd= db.DCD.ToList();           
             Dictionary<int, DCD> pairs = new Dictionary<int, DCD> { };
             
@@ -67,16 +67,34 @@ namespace EEmergencyWepApi.Models
             int chosenDCD= pairs.Keys.Min();
             DCD lockedDCD=pairs[chosenDCD];
             Console.WriteLine("the fastest duration DCD is chosen: "+lockedDCD.name+" with arivel duration "+ pairs.Keys.Min());
-            ParamedicTeam team = db.ParamedicTeams.First(e => e.deploymentLocation==lockedDCD.id && e.status==TeamStatus.available);
-            if (team == null) {
+            var team = db.ParamedicTeams.Where(e => e.deploymentLocation==lockedDCD.id && e.status==TeamStatus.available);
+
+
+            while (team == null)
+            {
                 chosenDCD = pairs.Keys.Min();
                 lockedDCD = pairs[chosenDCD++];
-                team = db.ParamedicTeams.First(e => e.deploymentLocation == lockedDCD.id && e.status == TeamStatus.available);
+                team = db.ParamedicTeams.Where(e => e.deploymentLocation == lockedDCD.id && e.status == TeamStatus.available);
+            }  
+            
+                List<ParamedicTeam> teams = team.ToList();
+
+
+            
+            for(int i=1;i<=numberOfPatient;i++) {
+                if (i <= teams.Count )
+                {
+                    teams[i].status = TeamStatus.onTheWay;
+                    Console.WriteLine("found the response team:  " +teams.Count);
+                }
             }
-            team.status = TeamStatus.onTheWay;
-            db.ParamedicTeams.Update(team);
-            Console.WriteLine("found the response team:  "+team.teamNumber);
-            return team;
+            foreach (var paramedicTeam in teams)
+            {
+                db.ParamedicTeams.Update(paramedicTeam);
+                db.SaveChanges();
+                Console.WriteLine("found the response team:  " + paramedicTeam.teamNumber);
+            }
+            return teams;
         }
 
         private int nearestDuration(Location cvilianLocation,Location paramedicLocation) {

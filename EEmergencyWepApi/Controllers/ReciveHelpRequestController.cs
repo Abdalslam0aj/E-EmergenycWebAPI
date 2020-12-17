@@ -42,10 +42,17 @@ namespace EEmergencyWepApi.Controllers
                 Console.WriteLine("help rquest is saved in running state ");
                 //TO DO add Recived help request and call assgin then save in db
                 RecivedHelpRequest recivedHelp = new RecivedHelpRequest(helpRequest, db);
-                HelpRequestAssigned requestAssigned = await recivedHelp.assigenHelpRequestAsync();
-                db.HelpRequestAssigned.Add(requestAssigned);
+                var requestsAssigned =  await recivedHelp.assigenHelpRequestAsync();
+                db.HelpRequestAssigned.Add(requestsAssigned[0]);
                 db.SaveChanges();
-                Console.WriteLine("help request is assgiend to a parmedic team ");
+                foreach (var requestAssigned in requestsAssigned)
+                {
+                  
+                    
+                }
+                
+
+                Console.WriteLine(" help request is assgiend to a parmedic team ");
                 return helpRequest.status;
                 
             }

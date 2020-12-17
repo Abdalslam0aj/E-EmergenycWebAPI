@@ -23,11 +23,13 @@ namespace EEmergencyWebApi.Models
             this.db = db;
         }
 
-        public async Task<HelpRequestAssigned> assigenHelpRequestAsync() {
+        public async Task<List<HelpRequestAssigned>> assigenHelpRequestAsync() {
             RequestAssigner assigner = new RequestAssigner();
 
-            return assigner.requestAssigner(db, helpRequest);
-;
+            var requestsAssigned  = await assigner.requestAssignerAsync(db, helpRequest);
+           
+            return requestsAssigned;
+            
         }
 
         
