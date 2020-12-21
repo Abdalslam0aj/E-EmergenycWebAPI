@@ -122,6 +122,37 @@ namespace EEmergencyWepApi.Models
             return duration;
         }
 
+        public static bool isThere(Location cvilianLocation, Location paramedicLocation)
+        {
+
+            string origin = paramedicLocation.latitude + ", " + paramedicLocation.longitude;
+            string destination = cvilianLocation.latitude + ", " + cvilianLocation.longitude;
+            string url = "https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins=" + origin + "&destinations=" + destination + "&region=jo&key=AIzaSyDa7ifKIOyGpc4AJugDeoNyxZIXzyjkSEY";
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            WebResponse response = request.GetResponse();
+            Matrix j = new Matrix();
+            int distance;
+            using (StreamReader Reader = new StreamReader(response.GetResponseStream()))
+            {
+                j = JsonConvert.DeserializeObject<Matrix>(Reader.ReadToEnd());
+            }
+
+            if (j.rows.First().elements.First().status == "OK")
+            {
+                Console.WriteLine(j.rows.First().elements.First().distance.text);
+                distance = j.rows.First().elements.First().distance.value;
+                if (distance < 100)
+                    return true;
+            }
+            else
+            {
+                return false;
+            }
+
+
+            return false;
+        }
+
         private ParamedicTeam fastestRoute()
         {
 
