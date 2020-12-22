@@ -1,4 +1,5 @@
-﻿using EEmergencyWepApi.Data.module;
+﻿using EEmergencyWebApi.Models;
+using EEmergencyWepApi.Data.module;
 using EEmergencyWepApi.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -21,16 +22,8 @@ namespace EEmergencyWebApi.Controllers
         [HttpPost]
         public ActionResult<bool> Index([FromForm] HelpRequest help)
         {
-            var requestFinished = db.HelpRequest.Where(e => e.civilianPhoneNumber == help.civilianPhoneNumber);
-            if (requestFinished.Count() == 0)
-            {
-
-                return false;
-            }
-            else
-            {
-                return true;
-            }
+            RecivedHelpRequest recivedHelpRequest = new RecivedHelpRequest(help,db);
+            return recivedHelpRequest.checkExists();
         }
     }
 }

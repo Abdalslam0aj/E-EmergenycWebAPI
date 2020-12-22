@@ -32,11 +32,29 @@ namespace EEmergencyWebApi.Models
             
         }
 
-        
+        public  bool checkExists() {
+            var requestFinished = db.HelpRequest.Where(e => e.civilianPhoneNumber == helpRequest.civilianPhoneNumber);
+            if (requestFinished.Count() == 0)
+            {
+
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+        public HelpRequest getRequest()
+        {
+            var requestFinished = db.HelpRequest.Where(e => e.civilianPhoneNumber == helpRequest.civilianPhoneNumber).ToArray();
+            return requestFinished[0];
+        }
 
 
 
 
-        
+
+
+
     }
 }
