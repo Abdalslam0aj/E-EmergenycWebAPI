@@ -54,13 +54,17 @@ namespace EEmergencyWepApi.Models
 
         public List<ParamedicTeam> findNearestResponseTeam (Location helpRequestLocation,int numberOfPatient) {
             numberOfPatient = 1;
-            List<DCD> dcd= db.DCD.ToList();           
+            List<DCD> dcd= db.DCD.ToList();
             Dictionary<int, DCD> pairs = new Dictionary<int, DCD> { };
             
             foreach (var d in dcd) {
                 Location dcdlocation = new Location(d.latitude,d.longitude);
                 int dcdToHelpDuration = nearestDuration(helpRequestLocation, dcdlocation);
-                pairs.Add(dcdToHelpDuration,d);                
+                try
+                {
+                    pairs.Add(dcdToHelpDuration, d);
+                }
+                catch (Exception e) { Console.WriteLine("same duration"); }
             }
             Console.WriteLine("all available DCD trafic and shortest route is located ");
 
@@ -69,13 +73,17 @@ namespace EEmergencyWepApi.Models
             Console.WriteLine("the fastest duration DCD is chosen: "+lockedDCD.name+" with arivel duration "+ pairs.Keys.Min());
             var team = db.ParamedicTeams.Where(e => e.deploymentLocation==lockedDCD.id && e.status==TeamStatus.available);
 
-
-            while (team == null)
+            int c = 0;
+            if (team == null)
             {
-                chosenDCD = pairs.Keys.Min();
-                lockedDCD = pairs[chosenDCD++];
-                team = db.ParamedicTeams.Where(e => e.deploymentLocation == lockedDCD.id && e.status == TeamStatus.available);
-            }  
+                var newDcd = dcd.Where(e => e.id != lockedDCD.id).ToArray();
+                while (team == null)
+                {
+
+                    team = db.ParamedicTeams.Where(e => e.deploymentLocation == newDcd[c].id && e.status == TeamStatus.available);
+                    c++;
+                }
+            }
             
                 List<ParamedicTeam> teams = team.ToList();
 
@@ -101,7 +109,7 @@ namespace EEmergencyWepApi.Models
 
             string origin=paramedicLocation.latitude+", "+paramedicLocation.longitude;
             string destination= cvilianLocation.latitude + ", " + cvilianLocation.longitude;
-            string url = "https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins="+origin+ "&destinations=" + destination+ "&region=jo&key=AIzaSyDa7ifKIOyGpc4AJugDeoNyxZIXzyjkSEY";
+            string url = "https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins="+origin+ "&destinations=" + destination+ "&key=AIzaSyDa7ifKIOyGpc4AJugDeoNyxZIXzyjkSEY";
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
             WebResponse response = request.GetResponse();
             Matrix j=new Matrix();
@@ -115,6 +123,7 @@ namespace EEmergencyWepApi.Models
                 duration = j.rows.First().elements.First().duration.value;
             }
             else {
+                Console.WriteLine(j.rows.First().elements.First().status);
                 duration = 0;
             }
             
@@ -136,7 +145,7 @@ namespace EEmergencyWepApi.Models
             {
                 j = JsonConvert.DeserializeObject<Matrix>(Reader.ReadToEnd());
             }
-
+            Console.WriteLine(j.rows.First().elements.First().status);
             if (j.rows.First().elements.First().status == "OK")
             {
                 Console.WriteLine(j.rows.First().elements.First().distance.text);

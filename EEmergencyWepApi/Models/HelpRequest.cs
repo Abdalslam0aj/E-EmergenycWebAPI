@@ -27,6 +27,8 @@ namespace EEmergencyWepApi.Models
 
         public int numberOfHumans { set; get; }
 
+        public int hospital { set; get; }
+
 
     }
 }

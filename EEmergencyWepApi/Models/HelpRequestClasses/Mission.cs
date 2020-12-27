@@ -17,13 +17,19 @@ namespace EEmergencyWebApi.Models.HelpRequestClasses
         public HelpRequest getHelpRequest(String phoneNumber) {
             HelpRequest helpRecived;
             Paramedic paramedic = db.Paramedic.Find(phoneNumber);
-            if (paramedic != null)
+            if (paramedic != null )
             {
                 Console.WriteLine("" + paramedic.fullName);
                 Console.WriteLine("" + paramedic.team);
-                HelpRequestAssigned paramedicJob = db.HelpRequestAssigned.First(e => e.teamNumber == paramedic.team);
-                Console.WriteLine("" + paramedicJob.id);
-                helpRecived = db.HelpRequest.Find(paramedicJob.id);
+                HelpRequestAssigned paramedicJob = db.HelpRequestAssigned.Find(paramedic.team);
+                if (paramedicJob != null)
+                {
+                    Console.WriteLine("" + paramedicJob.id);
+                    helpRecived = db.HelpRequest.Find(paramedicJob.id);
+                }
+                else {
+                    helpRecived = new HelpRequest();
+                }
             }
             else {
                 helpRecived = new HelpRequest();

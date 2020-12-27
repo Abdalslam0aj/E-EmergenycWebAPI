@@ -37,6 +37,8 @@ namespace EEmergencyWepApi.Controllers
             {
                 Console.WriteLine("help rquest is new and assigning sequence statrted arrived on "+ DateTime.Now);
                 helpRequest.timeOfArrivel = DateTime.Now;
+                //1 for no hospital assgined
+                helpRequest.hospital = 1;
                 db.HelpRequest.Add(helpRequest);
                 db.SaveChanges();
                 Console.WriteLine("help rquest is saved in running state ");
