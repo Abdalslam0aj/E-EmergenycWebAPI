@@ -8,10 +8,12 @@ namespace EEmergencyWepApi.Models
 {
     public class HelpRequestAssigned
     { 
+       
+      
         [Key]
-        public int id { set; get; }
-
         public int teamNumber { set; get; }
+
+        public int id { set; get; }
 
     }
 }
