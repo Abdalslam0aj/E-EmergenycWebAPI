@@ -89,7 +89,7 @@ namespace EEmergencyWepApi.Models
 
 
             
-            for(int i=0;i<=numberOfPatient;i++) {
+            for(int i=0;i<numberOfPatient;i++) {
                 if (i <= teams.Count )
                 {
                     teams[i].status = TeamStatus.onTheWay;

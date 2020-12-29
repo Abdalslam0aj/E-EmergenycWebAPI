@@ -19,7 +19,7 @@ namespace EEmergencyWebApi.Models
    
         public string description { set; get; }
 
-        public DateTime timeOfArrivel { set; get; }
+        public DateTime timeOfArrival { set; get; }
 
         public DateTime timeOfEnd { set; get; }
     }

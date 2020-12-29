@@ -1,4 +1,5 @@
-﻿using EEmergencyWepApi.Data.module;
+﻿using EEmergencyWebApi.Models.Const;
+using EEmergencyWepApi.Data.module;
 using EEmergencyWepApi.Models;
 using System;
 using System.Collections.Generic;
@@ -52,6 +53,7 @@ namespace EEmergencyWebApi.Models.HelpRequestClasses
                     Console.WriteLine("" + paramedicJob.id);
                     db.HelpRequestAssigned.Remove(paramedicJob);
                     ParamedicTeam relesedTeam= db.ParamedicTeams.Find(paramedic.team);
+                    relesedTeam.status = TeamStatus.available;
                     db.ParamedicTeams.Update(relesedTeam);
                     db.SaveChanges();
                     var teams=  db.HelpRequestAssigned.Where(e => e.id == paramedicJob.id);
@@ -62,12 +64,15 @@ namespace EEmergencyWebApi.Models.HelpRequestClasses
                         requestLog.civilianPhoneNumber = helpRecived.civilianPhoneNumber;
                         requestLog.description = helpRecived.description;
                         requestLog.id = helpRecived.id;
-                        requestLog.latitude = requestLog.longitude;
-                        requestLog.longitude = requestLog.longitude;
-                        requestLog.timeOfArrivel = helpRecived.timeOfArrivel;
-                        requestLog.timeOfEnd = requestLog.timeOfEnd;
+                        requestLog.latitude = helpRecived.latitude;
+                        requestLog.longitude = helpRecived.longitude;
+                        requestLog.timeOfArrival = helpRecived.timeOfArrivel;
+                        requestLog.timeOfEnd = DateTime.Now;
+                        Console.WriteLine("removing mission id of " + helpRecived.id);
                         db.RequestLog.Add(requestLog);
                         db.HelpRequest.Remove(helpRecived);
+                        db.SaveChanges();
+                       
                         return true;
                     }
 
