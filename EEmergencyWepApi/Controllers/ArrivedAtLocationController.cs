@@ -46,7 +46,7 @@ namespace EEmergencyWebApi.Controllers
             return false; 
         }
         public class Arrived {
-            public String civilianPhoneNumber { set; get; }           
+            public string civilianPhoneNumber { set; get; }           
             public double myLatitude { set; get; }
 
             public double myLongitude { set; get; }

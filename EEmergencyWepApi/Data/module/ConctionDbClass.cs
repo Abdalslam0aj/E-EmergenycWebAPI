@@ -29,7 +29,9 @@ namespace EEmergencyWepApi.Data.module
         public DbSet<TeamsAssigendLog> TeamsAssigendLog { set; get; }
         public DbSet<User> Users { set; get; }
 
+        public DbSet<Announcemet> Announcemet { set; get; }
        
+
 
 
 

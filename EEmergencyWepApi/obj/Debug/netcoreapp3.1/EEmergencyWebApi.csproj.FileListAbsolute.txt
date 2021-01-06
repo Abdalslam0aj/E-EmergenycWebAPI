@@ -173,8 +173,6 @@ D:\BackEndServer\EEmergencyWepApi\E\E-EmergenycWebAPI\EEmergencyWepApi\obj\Debug
 D:\BackEndServer\EEmergencyWepApi\E\E-EmergenycWebAPI\EEmergencyWepApi\obj\Debug\netcoreapp3.1\EEmergencyWebApi.MvcApplicationPartsAssemblyInfo.cache
 D:\BackEndServer\EEmergencyWepApi\E\E-EmergenycWebAPI\EEmergencyWepApi\obj\Debug\netcoreapp3.1\EEmergencyWebApi.RazorAssemblyInfo.cache
 D:\BackEndServer\EEmergencyWepApi\E\E-EmergenycWebAPI\EEmergencyWepApi\obj\Debug\netcoreapp3.1\EEmergencyWebApi.RazorAssemblyInfo.cs
-D:\BackEndServer\EEmergencyWepApi\E\E-EmergenycWebAPI\EEmergencyWepApi\obj\Debug\netcoreapp3.1\EEmergencyWebApi.dll
-D:\BackEndServer\EEmergencyWepApi\E\E-EmergenycWebAPI\EEmergencyWepApi\obj\Debug\netcoreapp3.1\EEmergencyWebApi.pdb
 D:\BackEndServer\EEmergencyWepApi\E\E-EmergenycWebAPI\EEmergencyWepApi\bin\Debug\netcoreapp3.1\appsettings.Development.json
 D:\BackEndServer\EEmergencyWepApi\E\E-EmergenycWebAPI\EEmergencyWepApi\bin\Debug\netcoreapp3.1\appsettings.json
 D:\BackEndServer\EEmergencyWepApi\E\E-EmergenycWebAPI\EEmergencyWepApi\bin\Debug\netcoreapp3.1\EEmergencyWebApi.exe
@@ -328,10 +326,12 @@ D:\BackEndServer\EEmergencyWepApi\E\E-EmergenycWebAPI\EEmergencyWepApi\obj\Debug
 D:\BackEndServer\EEmergencyWepApi\E\E-EmergenycWebAPI\EEmergencyWepApi\obj\Debug\netcoreapp3.1\EEmergencyWebApi.TagHelpers.input.cache
 D:\BackEndServer\EEmergencyWepApi\E\E-EmergenycWebAPI\EEmergencyWepApi\obj\Debug\netcoreapp3.1\EEmergencyWebApi.TagHelpers.output.cache
 D:\BackEndServer\EEmergencyWepApi\E\E-EmergenycWebAPI\EEmergencyWepApi\obj\Debug\netcoreapp3.1\EEmergencyWebApi.RazorCoreGenerate.cache
+D:\BackEndServer\EEmergencyWepApi\E\E-EmergenycWebAPI\EEmergencyWepApi\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 D:\BackEndServer\EEmergencyWepApi\E\E-EmergenycWebAPI\EEmergencyWepApi\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
 D:\BackEndServer\EEmergencyWepApi\E\E-EmergenycWebAPI\EEmergencyWepApi\obj\Debug\netcoreapp3.1\EEmergencyWebApi.RazorTargetAssemblyInfo.cache
 D:\BackEndServer\EEmergencyWepApi\E\E-EmergenycWebAPI\EEmergencyWepApi\obj\Debug\netcoreapp3.1\EEmergencyWebApi.RazorTargetAssemblyInfo.cs
 D:\BackEndServer\EEmergencyWepApi\E\E-EmergenycWebAPI\EEmergencyWepApi\obj\Debug\netcoreapp3.1\EEmergencyWebApi.Views.pdb
 D:\BackEndServer\EEmergencyWepApi\E\E-EmergenycWebAPI\EEmergencyWepApi\obj\Debug\netcoreapp3.1\EEmergencyWebApi.csproj.CopyComplete
+D:\BackEndServer\EEmergencyWepApi\E\E-EmergenycWebAPI\EEmergencyWepApi\obj\Debug\netcoreapp3.1\EEmergencyWebApi.dll
+D:\BackEndServer\EEmergencyWepApi\E\E-EmergenycWebAPI\EEmergencyWepApi\obj\Debug\netcoreapp3.1\EEmergencyWebApi.pdb
 D:\BackEndServer\EEmergencyWepApi\E\E-EmergenycWebAPI\EEmergencyWepApi\obj\Debug\netcoreapp3.1\EEmergencyWebApi.genruntimeconfig.cache
-D:\BackEndServer\EEmergencyWepApi\E\E-EmergenycWebAPI\EEmergencyWepApi\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs

@@ -20,6 +20,7 @@ namespace EEmergencyWebApi.Controllers
         }
 
         [HttpGet]
+        [HttpPost]
         public ActionResult<HelpRequest> getHelpRequest([FromForm] ParamedicData data)
         {
             Mission myMission = new Mission(db);
