@@ -21,6 +21,7 @@ namespace EEmergencyWebApi.Controllers
         public ActionResult<bool> Index([FromForm] Civilian civilian)
         {
             bool c = false;
+            Console.WriteLine(civilian.phoneNumber);
             RegisterController registerController = new RegisterController(db);
             c=registerController.RegisterCivilan(civilian);
 

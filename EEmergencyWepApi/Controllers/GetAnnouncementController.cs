@@ -17,10 +17,11 @@ namespace EEmergencyWebApi.Controllers
         {
             this.db = db;
         }
+        [HttpGet]
         public ActionResult<Announcemet> Index()
         {
-
-            return db.Announcemet.Min();
+            
+            return db.Announcemet.Find(1);
         }
     }
 }

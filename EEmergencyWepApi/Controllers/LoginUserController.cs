@@ -47,9 +47,11 @@ namespace EEmergencyWepApi.Controllers
                     Paramedic foundParamedic = db.Paramedic.Find(phoneNumber);
                     if (foundParamedic.password == password)
                     {
-                        if(loginInformation.notiToken!=null)
+                        
                         foundParamedic.notificationToken = loginInformation.notiToken;
                         db.Paramedic.Update(foundParamedic);
+                        db.SaveChanges();
+
                         return loginRequester;
                     }
                     else
@@ -60,7 +62,13 @@ namespace EEmergencyWepApi.Controllers
                 } else {
                     Civilian foundCivilian = db.Civilian.Find(phoneNumber);
                     if (foundCivilian.password == password)
+                    {
+                       
+                        foundCivilian.notificationToken = loginInformation.notiToken;
+                        db.Civilian.Update(foundCivilian);
+                        db.SaveChanges();
                         return loginRequester;
+                    }                        
                     else
                         return new User();
                 }

@@ -4,6 +4,15 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 -->
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <_PublishTargetUrl>C:\xampp\htdocs</_PublishTargetUrl>
+    <_PublishTargetUrl>D:\server</_PublishTargetUrl>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
   </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="EEmergenceDataBase">
+      <Value>EmergenceDataBase</Value>
+    </DestinationConnectionStrings>
+    <DestinationConnectionStrings Include="MyConnection">
+      <Value>EmergenceDataBase</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
 </Project>
