@@ -1,5 +1,6 @@
 ﻿using EEmergencyWebApi.Models;
 using EEmergencyWebApi.Models.Const;
+using EEmergencyWebApi.Models.sharedServices;
 using EEmergencyWepApi.Data.module;
 using EEmergencyWepApi.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -20,7 +21,7 @@ namespace EEmergencyWebApi.Controllers
             this.db = db;
         }
         [HttpPost]
-        public ActionResult<bool> Index([FromForm] Arrived finished)
+        public async Task<ActionResult<bool>> IndexAsync([FromForm] Arrived finished)
         {
             HelpRequest request = new HelpRequest();
             request.civilianPhoneNumber = finished.civilianPhoneNumber;
@@ -35,6 +36,8 @@ namespace EEmergencyWebApi.Controllers
                     requestToSet.status = HelpStatus.arrived;
                     db.HelpRequest.Update(requestToSet);
                     db.SaveChanges();
+                    var token = db.Civilian.Find(requestToSet.civilianPhoneNumber).notificationToken;
+                    await Notificationcs.sendNotificatonAsync(token, "paramedic arrived!", "the paramedic has arrived at your location");
                     return true;
 
                 } else

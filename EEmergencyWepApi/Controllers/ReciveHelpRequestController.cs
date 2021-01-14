@@ -47,11 +47,7 @@ namespace EEmergencyWepApi.Controllers
                 var requestsAssigned =  await recivedHelp.assigenHelpRequestAsync();
                 db.HelpRequestAssigned.Add(requestsAssigned[0]);
                 db.SaveChanges();
-                foreach (var requestAssigned in requestsAssigned)
-                {
-                  
-                    
-                }
+                
                 
 
                 Console.WriteLine(" help request is assgiend to a parmedic team ");
