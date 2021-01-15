@@ -105,7 +105,7 @@ namespace EEmergencyWepApi.Models
             return teams;
         }
 
-        private int nearestDuration(Location cvilianLocation,Location paramedicLocation) {
+        public int nearestDuration(Location cvilianLocation,Location paramedicLocation) {
 
             string origin=paramedicLocation.latitude+", "+paramedicLocation.longitude;
             string destination= cvilianLocation.latitude + ", " + cvilianLocation.longitude;
