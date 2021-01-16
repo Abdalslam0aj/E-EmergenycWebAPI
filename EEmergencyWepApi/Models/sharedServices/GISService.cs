@@ -52,6 +52,30 @@ namespace EEmergencyWepApi.Models
             this.db = db;
         }
 
+        public Hospital findNearestHospital(Location paramedicLocation) {
+            List<Hospital> hospitals = db.Hospital.ToList();
+            Dictionary<int, Hospital> pairs = new Dictionary<int, Hospital> { };
+
+            foreach (var d in hospitals)
+            {
+                Location hospitallocation = new Location(d.latitude, d.longitude);
+                int paramedicToHospitalDuration = nearestDuration(paramedicLocation, hospitallocation);
+                try
+                {
+                    pairs.Add(paramedicToHospitalDuration, d);
+                }
+                catch (Exception e) { Console.WriteLine("same duration"); }
+            }
+            Console.WriteLine("all available DCD trafic and shortest route is located ");
+
+            int chosenHospital = pairs.Keys.Min();
+            Hospital lockedHospital = pairs[chosenHospital];
+            Console.WriteLine("the fastest duration Hospital is chosen: " + lockedHospital.name + " with arivel duration " + pairs.Keys.Min());
+            return lockedHospital;
+
+
+        }
+
         public List<ParamedicTeam> findNearestResponseTeam (Location helpRequestLocation,int numberOfPatient) {
             numberOfPatient = 1;
             List<DCD> dcd= db.DCD.ToList();

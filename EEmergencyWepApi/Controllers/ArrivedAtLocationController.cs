@@ -21,7 +21,7 @@ namespace EEmergencyWebApi.Controllers
             this.db = db;
         }
         [HttpPost]
-        public async Task<ActionResult<bool>> IndexAsync([FromForm] Arrived finished)
+        public async Task<ActionResult<Hospital>> IndexAsync([FromForm] Arrived finished)
         {
             HelpRequest request = new HelpRequest();
             request.civilianPhoneNumber = finished.civilianPhoneNumber;
@@ -36,17 +36,22 @@ namespace EEmergencyWebApi.Controllers
                     requestToSet.status = HelpStatus.arrived;
                     db.HelpRequest.Update(requestToSet);
                     db.SaveChanges();
+                    GISService service = new GISService(db);
+                    Location paramedicLocation = new Location(finished.myLatitude, finished.myLongitude);
+                    Hospital hospital = service.findNearestHospital(paramedicLocation);
+
                     var token = db.Civilian.Find(requestToSet.civilianPhoneNumber).notificationToken;
                     await Notificationcs.sendNotificatonAsync(token, "paramedic arrived!", "the paramedic has arrived at your location");
-                    return true;
+                    return hospital;
 
-                } else
-                return false;
+                }
+                else
+                    return new Hospital();
             } else 
            
 
 
-            return false; 
+            return new Hospital(); 
         }
         public class Arrived {
             public string civilianPhoneNumber { set; get; }           
