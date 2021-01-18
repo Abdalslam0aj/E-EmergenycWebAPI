@@ -17,7 +17,8 @@ namespace EEmergencyWebApi.Controllers
         {
             this.db = db;
         }
-        public ActionResult<Civilian> Index([FromBody]Civilian civilian)
+        [HttpPost]
+        public ActionResult<Civilian> Index([FromForm]Civilian civilian)
         {
             try {
                 Civilian user = db.Civilian.Find(civilian.phoneNumber);

@@ -1,4 +1,5 @@
-﻿using EEmergencyWepApi.Data.module;
+﻿using EEmergencyWebApi.Models;
+using EEmergencyWepApi.Data.module;
 using EEmergencyWepApi.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -20,21 +21,20 @@ namespace EEmergencyWebApi.Controllers
         }
         public ActionResult<bool> Index([FromForm] Civilian civilian)
         {
-            try
-            {
-                if (db.Civilian.Find(civilian.phoneNumber) != null)
-                {
+
+            // if (db.Civilian.Find(civilian.phoneNumber) != null)
+            ///  {
+              //      User user=new User();
+            //        user.phoneNumber= civilian.phoneNumber;
+            //        user.userType = "civilian";
+            //        db.Users.Update(user);
+             //       db.SaveChanges(); 
                     db.Civilian.Update(civilian);
                     db.SaveChanges();
                     return true;
-                }
-                return false;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);                
-                return false;
-            }
+              //  }
+              //  return false;
+           
            
         }
     }

@@ -54,7 +54,9 @@ namespace EEmergencyWepApi.Models
 
         public Hospital findNearestHospital(Location paramedicLocation) {
             List<Hospital> hospitals = db.Hospital.ToList();
+            hospitals.RemoveAt(0);
             Dictionary<int, Hospital> pairs = new Dictionary<int, Hospital> { };
+            
 
             foreach (var d in hospitals)
             {

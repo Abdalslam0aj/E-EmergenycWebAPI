@@ -10,7 +10,7 @@ namespace EEmergencyWepApi.Models
     public class Hospital
     {
         [Key]
-        public int id { set; get; }
+        public int hospitalid { set; get; }
 
         public string name { set; get; }
 
