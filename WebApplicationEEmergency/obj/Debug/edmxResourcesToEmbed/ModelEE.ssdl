@@ -1,0 +1,377 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EEmergencyDataBaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="email" />
+    </Key>
+    <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="fullName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Announcemet">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="readMore" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Civilian">
+    <Key>
+      <PropertyRef Name="phoneNumber" />
+    </Key>
+    <Property Name="phoneNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="NIDN" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="fullName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="bloodType" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="birthDate" Type="date" Nullable="false" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" />
+    <Property Name="medicalCondition" Type="nvarchar(max)" />
+    <Property Name="notificationToken" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="DCD">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="latitude" Type="float" Nullable="false" />
+    <Property Name="longitude" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="helpRequest">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="civilianPhoneNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="latitude" Type="float" Nullable="false" />
+    <Property Name="longitude" Type="float" Nullable="false" />
+    <Property Name="status" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="timeOfArrivel" Type="datetime2" Precision="7" />
+    <Property Name="timeOfEnd" Type="datetime2" Precision="7" />
+    <Property Name="numberOfHumans" Type="int" />
+    <Property Name="hospital" Type="int" />
+  </EntityType>
+  <EntityType Name="helpRequestAssigned">
+    <Key>
+      <PropertyRef Name="teamNumber" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="teamNumber" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Hospital">
+    <Key>
+      <PropertyRef Name="hospitalId" />
+    </Key>
+    <Property Name="hospitalId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="latitude" Type="float" Nullable="false" />
+    <Property Name="longitude" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Paramedic">
+    <Key>
+      <PropertyRef Name="phoneNumber" />
+    </Key>
+    <Property Name="phoneNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="NIDN" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="fullname" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="status" Type="nvarchar" MaxLength="50" />
+    <Property Name="notificationToken" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Team" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ParamedicTeams">
+    <Key>
+      <PropertyRef Name="teamNumber" />
+    </Key>
+    <Property Name="teamNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="deploymentLocation" Type="int" Nullable="false" />
+    <Property Name="status" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RequestLog">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="civilianPhoneNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="latitude" Type="float" Nullable="false" />
+    <Property Name="longitude" Type="float" Nullable="false" />
+    <Property Name="description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="timeOfArrival" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="timeOfEnd" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="hospital" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TeamMembers">
+    <Key>
+      <PropertyRef Name="teamNumber" />
+    </Key>
+    <Property Name="teamNumber" Type="int" Nullable="false" />
+    <Property Name="phoneNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TeamsAssigendLog">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="teamNumber" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="phoneNumber" />
+    </Key>
+    <Property Name="phoneNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="userType" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Admin_Admin">
+    <End Role="Admin" Type="Self.Admin" Multiplicity="1" />
+    <End Role="Admin1" Type="Self.Admin" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Admin">
+        <PropertyRef Name="email" />
+      </Principal>
+      <Dependent Role="Admin1">
+        <PropertyRef Name="email" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Civilian_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Civilian" Type="Self.Civilian" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="phoneNumber" />
+      </Principal>
+      <Dependent Role="Civilian">
+        <PropertyRef Name="phoneNumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_helpRequest_Civilian">
+    <End Role="Civilian" Type="Self.Civilian" Multiplicity="1" />
+    <End Role="helpRequest" Type="Self.helpRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Civilian">
+        <PropertyRef Name="phoneNumber" />
+      </Principal>
+      <Dependent Role="helpRequest">
+        <PropertyRef Name="civilianPhoneNumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_helpRequest_Hospital">
+    <End Role="Hospital" Type="Self.Hospital" Multiplicity="0..1" />
+    <End Role="helpRequest" Type="Self.helpRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hospital">
+        <PropertyRef Name="hospitalId" />
+      </Principal>
+      <Dependent Role="helpRequest">
+        <PropertyRef Name="hospital" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_helpRequestAssgiend_helpRequest">
+    <End Role="helpRequest" Type="Self.helpRequest" Multiplicity="1" />
+    <End Role="helpRequestAssigned" Type="Self.helpRequestAssigned" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="helpRequest">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="helpRequestAssigned">
+        <PropertyRef Name="id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_helpRequestAssgiend_ParamedicTeams">
+    <End Role="ParamedicTeams" Type="Self.ParamedicTeams" Multiplicity="1" />
+    <End Role="helpRequestAssigned" Type="Self.helpRequestAssigned" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="ParamedicTeams">
+        <PropertyRef Name="teamNumber" />
+      </Principal>
+      <Dependent Role="helpRequestAssigned">
+        <PropertyRef Name="teamNumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Paramedic_ParamedicTeams">
+    <End Role="ParamedicTeams" Type="Self.ParamedicTeams" Multiplicity="1" />
+    <End Role="Paramedic" Type="Self.Paramedic" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ParamedicTeams">
+        <PropertyRef Name="teamNumber" />
+      </Principal>
+      <Dependent Role="Paramedic">
+        <PropertyRef Name="Team" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Paramedic_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Paramedic" Type="Self.Paramedic" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="phoneNumber" />
+      </Principal>
+      <Dependent Role="Paramedic">
+        <PropertyRef Name="phoneNumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ParamedicTeams_DCD">
+    <End Role="DCD" Type="Self.DCD" Multiplicity="1" />
+    <End Role="ParamedicTeams" Type="Self.ParamedicTeams" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="DCD">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ParamedicTeams">
+        <PropertyRef Name="teamNumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RequestLog_Hospital">
+    <End Role="Hospital" Type="Self.Hospital" Multiplicity="0..1" />
+    <End Role="RequestLog" Type="Self.RequestLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hospital">
+        <PropertyRef Name="hospitalId" />
+      </Principal>
+      <Dependent Role="RequestLog">
+        <PropertyRef Name="hospital" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TeamMembers_Paramedic">
+    <End Role="Paramedic" Type="Self.Paramedic" Multiplicity="1" />
+    <End Role="TeamMembers" Type="Self.TeamMembers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Paramedic">
+        <PropertyRef Name="phoneNumber" />
+      </Principal>
+      <Dependent Role="TeamMembers">
+        <PropertyRef Name="phoneNumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TeamMembers_ParamedicTeams">
+    <End Role="ParamedicTeams" Type="Self.ParamedicTeams" Multiplicity="1" />
+    <End Role="TeamMembers" Type="Self.TeamMembers" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="ParamedicTeams">
+        <PropertyRef Name="teamNumber" />
+      </Principal>
+      <Dependent Role="TeamMembers">
+        <PropertyRef Name="teamNumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TeamsAssigendLog_RequestLog">
+    <End Role="RequestLog" Type="Self.RequestLog" Multiplicity="1" />
+    <End Role="TeamsAssigendLog" Type="Self.TeamsAssigendLog" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="RequestLog">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="TeamsAssigendLog">
+        <PropertyRef Name="id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Users1" Type="Self.Users" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="phoneNumber" />
+      </Principal>
+      <Dependent Role="Users1">
+        <PropertyRef Name="phoneNumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EEmergencyDataBaseModelStoreContainer">
+    <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Announcemet" EntityType="Self.Announcemet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Civilian" EntityType="Self.Civilian" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DCD" EntityType="Self.DCD" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="helpRequest" EntityType="Self.helpRequest" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="helpRequestAssigned" EntityType="Self.helpRequestAssigned" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Hospital" EntityType="Self.Hospital" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Paramedic" EntityType="Self.Paramedic" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ParamedicTeams" EntityType="Self.ParamedicTeams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RequestLog" EntityType="Self.RequestLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TeamMembers" EntityType="Self.TeamMembers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TeamsAssigendLog" EntityType="Self.TeamsAssigendLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Admin_Admin" Association="Self.FK_Admin_Admin">
+      <End Role="Admin" EntitySet="Admin" />
+      <End Role="Admin1" EntitySet="Admin" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Civilian_Users" Association="Self.FK_Civilian_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Civilian" EntitySet="Civilian" />
+    </AssociationSet>
+    <AssociationSet Name="FK_helpRequest_Civilian" Association="Self.FK_helpRequest_Civilian">
+      <End Role="Civilian" EntitySet="Civilian" />
+      <End Role="helpRequest" EntitySet="helpRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_helpRequest_Hospital" Association="Self.FK_helpRequest_Hospital">
+      <End Role="Hospital" EntitySet="Hospital" />
+      <End Role="helpRequest" EntitySet="helpRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_helpRequestAssgiend_helpRequest" Association="Self.FK_helpRequestAssgiend_helpRequest">
+      <End Role="helpRequest" EntitySet="helpRequest" />
+      <End Role="helpRequestAssigned" EntitySet="helpRequestAssigned" />
+    </AssociationSet>
+    <AssociationSet Name="FK_helpRequestAssgiend_ParamedicTeams" Association="Self.FK_helpRequestAssgiend_ParamedicTeams">
+      <End Role="ParamedicTeams" EntitySet="ParamedicTeams" />
+      <End Role="helpRequestAssigned" EntitySet="helpRequestAssigned" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Paramedic_ParamedicTeams" Association="Self.FK_Paramedic_ParamedicTeams">
+      <End Role="ParamedicTeams" EntitySet="ParamedicTeams" />
+      <End Role="Paramedic" EntitySet="Paramedic" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Paramedic_Users" Association="Self.FK_Paramedic_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Paramedic" EntitySet="Paramedic" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ParamedicTeams_DCD" Association="Self.FK_ParamedicTeams_DCD">
+      <End Role="DCD" EntitySet="DCD" />
+      <End Role="ParamedicTeams" EntitySet="ParamedicTeams" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RequestLog_Hospital" Association="Self.FK_RequestLog_Hospital">
+      <End Role="Hospital" EntitySet="Hospital" />
+      <End Role="RequestLog" EntitySet="RequestLog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TeamMembers_Paramedic" Association="Self.FK_TeamMembers_Paramedic">
+      <End Role="Paramedic" EntitySet="Paramedic" />
+      <End Role="TeamMembers" EntitySet="TeamMembers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TeamMembers_ParamedicTeams" Association="Self.FK_TeamMembers_ParamedicTeams">
+      <End Role="ParamedicTeams" EntitySet="ParamedicTeams" />
+      <End Role="TeamMembers" EntitySet="TeamMembers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TeamsAssigendLog_RequestLog" Association="Self.FK_TeamsAssigendLog_RequestLog">
+      <End Role="RequestLog" EntitySet="RequestLog" />
+      <End Role="TeamsAssigendLog" EntitySet="TeamsAssigendLog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Users" Association="Self.FK_Users_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Users1" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,74 @@
+﻿@model WebApplicationEEmergency.Paramedic
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Paramedic</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NIDN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NIDN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fullname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fullname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.notificationToken)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.notificationToken)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ParamedicTeam.status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ParamedicTeam.status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User.userType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.userType)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.phoneNumber }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="68a01f05ea2e45b2b23a6152ed1729a6" Name="Diagram1" ZoomLevel="63">
+        <EntityTypeShape EntityType="EEmergencyDataBaseModel.Admin" Width="1.5" PointX="7.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EEmergencyDataBaseModel.Announcemet" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EEmergencyDataBaseModel.Civilian" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EEmergencyDataBaseModel.DCD" Width="1.5" PointX="5.25" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EEmergencyDataBaseModel.helpRequest" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="EEmergencyDataBaseModel.Hospital" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EEmergencyDataBaseModel.Paramedic" Width="1.5" PointX="9.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EEmergencyDataBaseModel.ParamedicTeam" Width="1.5" PointX="7.5" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EEmergencyDataBaseModel.RequestLog" Width="1.5" PointX="5.25" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EEmergencyDataBaseModel.sysdiagram" Width="1.5" PointX="9.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EEmergencyDataBaseModel.TeamsAssigendLog" Width="1.5" PointX="7.5" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="EEmergencyDataBaseModel.User" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
+        <AssociationConnector Association="EEmergencyDataBaseModel.FK_Admin_Admin" ManuallyRouted="false" />
+        <AssociationConnector Association="EEmergencyDataBaseModel.FK_Civilian_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="EEmergencyDataBaseModel.FK_helpRequest_Civilian" ManuallyRouted="false" />
+        <AssociationConnector Association="EEmergencyDataBaseModel.FK_ParamedicTeams_DCD" ManuallyRouted="false" />
+        <AssociationConnector Association="EEmergencyDataBaseModel.FK_helpRequest_Hospital" ManuallyRouted="false" />
+        <AssociationConnector Association="EEmergencyDataBaseModel.FK_RequestLog_Hospital" ManuallyRouted="false" />
+        <AssociationConnector Association="EEmergencyDataBaseModel.FK_Paramedic_ParamedicTeams" ManuallyRouted="false" />
+        <AssociationConnector Association="EEmergencyDataBaseModel.FK_Paramedic_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="EEmergencyDataBaseModel.FK_TeamsAssigendLog_RequestLog" ManuallyRouted="false" />
+        <AssociationConnector Association="EEmergencyDataBaseModel.FK_Users_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="EEmergencyDataBaseModel.helpRequestAssigned" ManuallyRouted="false" />
+        <AssociationConnector Association="EEmergencyDataBaseModel.TeamMembers" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EEmergencyDataBaseModelStoreContainer" CdmEntityContainer="EEmergencyDataBaseEntities">
+    <EntitySetMapping Name="Admins">
+      <EntityTypeMapping TypeName="EEmergencyDataBaseModel.Admin">
+        <MappingFragment StoreEntitySet="Admin">
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="fullName" ColumnName="fullName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Announcemets">
+      <EntityTypeMapping TypeName="EEmergencyDataBaseModel.Announcemet">
+        <MappingFragment StoreEntitySet="Announcemet">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="readMore" ColumnName="readMore" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Civilians">
+      <EntityTypeMapping TypeName="EEmergencyDataBaseModel.Civilian">
+        <MappingFragment StoreEntitySet="Civilian">
+          <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="NIDN" ColumnName="NIDN" />
+          <ScalarProperty Name="fullName" ColumnName="fullName" />
+          <ScalarProperty Name="bloodType" ColumnName="bloodType" />
+          <ScalarProperty Name="birthDate" ColumnName="birthDate" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="medicalCondition" ColumnName="medicalCondition" />
+          <ScalarProperty Name="notificationToken" ColumnName="notificationToken" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DCDs">
+      <EntityTypeMapping TypeName="EEmergencyDataBaseModel.DCD">
+        <MappingFragment StoreEntitySet="DCD">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="latitude" ColumnName="latitude" />
+          <ScalarProperty Name="longitude" ColumnName="longitude" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="helpRequests">
+      <EntityTypeMapping TypeName="EEmergencyDataBaseModel.helpRequest">
+        <MappingFragment StoreEntitySet="helpRequest">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="civilianPhoneNumber" ColumnName="civilianPhoneNumber" />
+          <ScalarProperty Name="latitude" ColumnName="latitude" />
+          <ScalarProperty Name="longitude" ColumnName="longitude" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="timeOfArrivel" ColumnName="timeOfArrivel" />
+          <ScalarProperty Name="timeOfEnd" ColumnName="timeOfEnd" />
+          <ScalarProperty Name="numberOfHumans" ColumnName="numberOfHumans" />
+          <ScalarProperty Name="hospital" ColumnName="hospital" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Hospitals">
+      <EntityTypeMapping TypeName="EEmergencyDataBaseModel.Hospital">
+        <MappingFragment StoreEntitySet="Hospital">
+          <ScalarProperty Name="hospitalId" ColumnName="hospitalId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="latitude" ColumnName="latitude" />
+          <ScalarProperty Name="longitude" ColumnName="longitude" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Paramedics">
+      <EntityTypeMapping TypeName="EEmergencyDataBaseModel.Paramedic">
+        <MappingFragment StoreEntitySet="Paramedic">
+          <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="NIDN" ColumnName="NIDN" />
+          <ScalarProperty Name="fullname" ColumnName="fullname" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="notificationToken" ColumnName="notificationToken" />
+          <ScalarProperty Name="Team" ColumnName="Team" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ParamedicTeams">
+      <EntityTypeMapping TypeName="EEmergencyDataBaseModel.ParamedicTeam">
+        <MappingFragment StoreEntitySet="ParamedicTeams">
+          <ScalarProperty Name="teamNumber" ColumnName="teamNumber" />
+          <ScalarProperty Name="deploymentLocation" ColumnName="deploymentLocation" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RequestLogs">
+      <EntityTypeMapping TypeName="EEmergencyDataBaseModel.RequestLog">
+        <MappingFragment StoreEntitySet="RequestLog">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="civilianPhoneNumber" ColumnName="civilianPhoneNumber" />
+          <ScalarProperty Name="latitude" ColumnName="latitude" />
+          <ScalarProperty Name="longitude" ColumnName="longitude" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="timeOfArrival" ColumnName="timeOfArrival" />
+          <ScalarProperty Name="timeOfEnd" ColumnName="timeOfEnd" />
+          <ScalarProperty Name="hospital" ColumnName="hospital" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="EEmergencyDataBaseModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TeamsAssigendLogs">
+      <EntityTypeMapping TypeName="EEmergencyDataBaseModel.TeamsAssigendLog">
+        <MappingFragment StoreEntitySet="TeamsAssigendLog">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="teamNumber" ColumnName="teamNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="EEmergencyDataBaseModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+          <ScalarProperty Name="userType" ColumnName="userType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="helpRequestAssigned" TypeName="EEmergencyDataBaseModel.helpRequestAssigned" StoreEntitySet="helpRequestAssigned">
+      <EndProperty Name="helpRequest">
+        <ScalarProperty Name="id" ColumnName="id" />
+      </EndProperty>
+      <EndProperty Name="ParamedicTeams">
+        <ScalarProperty Name="teamNumber" ColumnName="teamNumber" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TeamMembers" TypeName="EEmergencyDataBaseModel.TeamMembers" StoreEntitySet="TeamMembers">
+      <EndProperty Name="Paramedic">
+        <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+      </EndProperty>
+      <EndProperty Name="ParamedicTeams">
+        <ScalarProperty Name="teamNumber" ColumnName="teamNumber" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>
