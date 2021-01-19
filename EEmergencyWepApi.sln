@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.30517.126
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EEmergencyWebApi", "EEmergencyWepApi\EEmergencyWebApi.csproj", "{71965373-240D-4934-B50B-3B3B9F37D9C7}"
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "EEmergencyAdmin", "EEmergencyAdmin\EEmergencyAdmin.vbproj", "{49BE5AF5-012E-438A-845A-6B794C48A8B1}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{71965373-240D-4934-B50B-3B3B9F37D9C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{71965373-240D-4934-B50B-3B3B9F37D9C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{71965373-240D-4934-B50B-3B3B9F37D9C7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{49BE5AF5-012E-438A-845A-6B794C48A8B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{49BE5AF5-012E-438A-845A-6B794C48A8B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{49BE5AF5-012E-438A-845A-6B794C48A8B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{49BE5AF5-012E-438A-845A-6B794C48A8B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
