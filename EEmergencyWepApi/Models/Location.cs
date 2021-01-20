@@ -14,8 +14,8 @@ namespace EEmergencyWepApi.Models
             this.longitude = longitude;
         }
 
-        public double latitude { get; }
-        public double longitude { get; }
+        public double latitude { get; set; }
+        public double longitude { get; set; }
       
 
     }
