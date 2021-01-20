@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="EEmergencyDataBaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="EEmergencyDataBaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Admin">
           <Key>
             <PropertyRef Name="email" />
@@ -86,6 +86,7 @@
           <Property Name="status" Type="nvarchar" MaxLength="50" />
           <Property Name="notificationToken" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Team" Type="int" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="ParamedicTeams">
           <Key>
@@ -379,8 +380,7 @@
             <End Role="Users1" EntitySet="Users" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="EEmergencyDataBaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -471,6 +471,7 @@
           <NavigationProperty Name="ParamedicTeam" Relationship="Self.FK_Paramedic_ParamedicTeams" FromRole="Paramedic" ToRole="ParamedicTeams" />
           <NavigationProperty Name="User" Relationship="Self.FK_Paramedic_Users" FromRole="Paramedic" ToRole="Users" />
           <NavigationProperty Name="ParamedicTeams" Relationship="Self.TeamMembers" FromRole="Paramedic" ToRole="ParamedicTeams" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="ParamedicTeam">
           <Key>
@@ -796,6 +797,7 @@
           <EntitySetMapping Name="Paramedics">
             <EntityTypeMapping TypeName="EEmergencyDataBaseModel.Paramedic">
               <MappingFragment StoreEntitySet="Paramedic">
+                <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
                 <ScalarProperty Name="password" ColumnName="password" />
                 <ScalarProperty Name="NIDN" ColumnName="NIDN" />

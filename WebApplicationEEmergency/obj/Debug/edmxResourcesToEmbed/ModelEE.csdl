@@ -87,6 +87,7 @@
     <NavigationProperty Name="ParamedicTeam" Relationship="Self.FK_Paramedic_ParamedicTeams" FromRole="Paramedic" ToRole="ParamedicTeams" />
     <NavigationProperty Name="User" Relationship="Self.FK_Paramedic_Users" FromRole="Paramedic" ToRole="Users" />
     <NavigationProperty Name="ParamedicTeams" Relationship="Self.TeamMembers" FromRole="Paramedic" ToRole="ParamedicTeams" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="ParamedicTeam">
     <Key>

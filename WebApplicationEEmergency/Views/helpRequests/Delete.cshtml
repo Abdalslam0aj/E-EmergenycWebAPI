@@ -1,0 +1,96 @@
+﻿@model WebApplicationEEmergency.helpRequest
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>helpRequest</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.latitude)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.latitude)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.longitude)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.longitude)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.timeOfArrivel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.timeOfArrivel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.timeOfEnd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.timeOfEnd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.numberOfHumans)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.numberOfHumans)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Civilian.password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Civilian.password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hospital1.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hospital1.Name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

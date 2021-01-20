@@ -1,0 +1,52 @@
+﻿@*@{
+        ViewBag.Title = "About";
+    }
+    <h2>@ViewBag.Title.</h2>
+    <h3>@ViewBag.Message</h3>
+
+    <p>Use this area to provide additional information.</p>*@
+@model WebApplicationEEmergency.Admin
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/CssStyle/loginCss.css" type="text/css" />
+    <title>Login</title>
+</head>
+<body background="~/imge/LoginB.png">
+    <div>
+
+        @using (Html.BeginForm("Login", "Home", new { ReturnUrl = Request.QueryString["ReturnUrl"] }, FormMethod.Post))
+        {
+            <table class="cent">
+                <tr>
+                    <td>User Name : </td>
+                    <td>@Html.TextBoxFor(x => x.email)</td>
+                </tr>
+                <tr>
+                    <td>password : </td>
+                    <td>@Html.PasswordFor(x => x.password)</td>
+                </tr>
+                <tr><td></td><td><input type="submit" value="submit" /> </td> </tr>
+                @*<tr><td>Dont have an account </td><td>@Html.ActionLink("sign-up", "signup")</td></tr>*@
+            </table>
+
+
+            if (ViewData.ModelState[""] != null)
+            {
+                <div class="alert alert-danger">
+                    @Html.ValidationSummary()
+                </div>
+            }
+        }
+
+
+    </div>
+</body>
+</html>

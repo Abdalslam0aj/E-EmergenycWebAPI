@@ -76,8 +76,8 @@ D:\BackEndServer\EEmergencyWepApi\E\E-EmergenycWebAPI\WebApplicationEEmergency\b
 D:\BackEndServer\EEmergencyWepApi\E\E-EmergenycWebAPI\WebApplicationEEmergency\bin\Newtonsoft.Json.xml
 D:\BackEndServer\EEmergencyWepApi\E\E-EmergenycWebAPI\WebApplicationEEmergency\bin\Antlr3.Runtime.pdb
 D:\BackEndServer\EEmergencyWepApi\E\E-EmergenycWebAPI\WebApplicationEEmergency\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\BackEndServer\EEmergencyWepApi\E\E-EmergenycWebAPI\WebApplicationEEmergency\obj\Debug\WebApplicationEEmergency.csprojAssemblyReference.cache
 D:\BackEndServer\EEmergencyWepApi\E\E-EmergenycWebAPI\WebApplicationEEmergency\obj\Debug\WebApplicationEEmergency.csproj.CoreCompileInputs.cache
 D:\BackEndServer\EEmergencyWepApi\E\E-EmergenycWebAPI\WebApplicationEEmergency\obj\Debug\WebApplicationEEmergency.csproj.CopyComplete
 D:\BackEndServer\EEmergencyWepApi\E\E-EmergenycWebAPI\WebApplicationEEmergency\obj\Debug\WebApplicationEEmergency.dll
 D:\BackEndServer\EEmergencyWepApi\E\E-EmergenycWebAPI\WebApplicationEEmergency\obj\Debug\WebApplicationEEmergency.pdb
+D:\BackEndServer\EEmergencyWepApi\E\E-EmergenycWebAPI\WebApplicationEEmergency\obj\Debug\WebApplicationEEmergency.csprojAssemblyReference.cache

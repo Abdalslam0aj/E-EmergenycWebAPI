@@ -10,11 +10,13 @@ using WebApplicationEEmergency;
 
 namespace WebApplicationEEmergency.Controllers
 {
+    [Authorize]
     public class DCDsController : Controller
     {
         private EEmergencyDataBaseEntities db = new EEmergencyDataBaseEntities();
 
         // GET: DCDs
+       
         public ActionResult Index()
         {
             var dCDs = db.DCDs.Include(d => d.ParamedicTeam);

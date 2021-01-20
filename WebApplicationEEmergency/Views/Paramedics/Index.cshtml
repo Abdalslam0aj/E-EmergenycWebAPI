@@ -12,6 +12,9 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.phoneNumber)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.password)
         </th>
         <th>
@@ -23,9 +26,7 @@
         <th>
             @Html.DisplayNameFor(model => model.status)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.notificationToken)
-        </th>
+        
         <th>
             @Html.DisplayNameFor(model => model.ParamedicTeam.status)
         </th>
@@ -36,34 +37,35 @@
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.password)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NIDN)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.fullname)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.status)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.notificationToken)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ParamedicTeam.status)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.User.userType)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.phoneNumber }) |
-            @Html.ActionLink("Details", "Details", new { id=item.phoneNumber }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.phoneNumber })
-        </td>
-    </tr>
+<tr>
+    <th>
+        @Html.DisplayFor(modelItem => item.phoneNumber)
+    </th>
+    <td>
+        @Html.DisplayFor(modelItem => item.password)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.NIDN)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.fullname)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.status)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.ParamedicTeam.status)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.User.userType)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.phoneNumber }) |
+        @Html.ActionLink("Details", "Details", new { id = item.phoneNumber }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.phoneNumber })
+    </td>
+</tr>
 }
 
 </table>

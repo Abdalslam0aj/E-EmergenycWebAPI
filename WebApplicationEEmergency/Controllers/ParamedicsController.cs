@@ -10,6 +10,7 @@ using WebApplicationEEmergency;
 
 namespace WebApplicationEEmergency.Controllers
 {
+    [Authorize]
     public class ParamedicsController : Controller
     {
         private EEmergencyDataBaseEntities db = new EEmergencyDataBaseEntities();
@@ -39,7 +40,7 @@ namespace WebApplicationEEmergency.Controllers
         // GET: Paramedics/Create
         public ActionResult Create()
         {
-            ViewBag.Team = new SelectList(db.ParamedicTeams, "teamNumber", "status");
+            ViewBag.Team = new SelectList(db.ParamedicTeams, "teamNumber", "teamNumber");
             ViewBag.phoneNumber = new SelectList(db.Users, "phoneNumber", "userType");
             return View();
         }
@@ -53,6 +54,10 @@ namespace WebApplicationEEmergency.Controllers
         {
             if (ModelState.IsValid)
             {
+                User user = new User();
+                user.phoneNumber =paramedic.phoneNumber;
+                user.userType = "paramedic";
+                db.Users.Add(user);
                 db.Paramedics.Add(paramedic);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -120,6 +125,9 @@ namespace WebApplicationEEmergency.Controllers
         {
             Paramedic paramedic = db.Paramedics.Find(id);
             db.Paramedics.Remove(paramedic);
+            User user = db.Users.Find(id);
+           
+            db.Users.Remove(user);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

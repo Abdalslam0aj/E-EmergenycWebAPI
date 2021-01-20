@@ -137,10 +137,15 @@
     <Compile Include="Civilian.cs">
       <DependentUpon>ModelEE.tt</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\AdminsController.cs" />
+    <Compile Include="Controllers\AnnouncemetsController.cs" />
     <Compile Include="Controllers\DCDsController.cs" />
+    <Compile Include="Controllers\helpRequestsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HospitalsController.cs" />
     <Compile Include="Controllers\ParamedicsController.cs" />
+    <Compile Include="Controllers\ParamedicTeamsController.cs" />
+    <Compile Include="Controllers\RequestLogsController.cs" />
     <Compile Include="DCD.cs">
       <DependentUpon>ModelEE.tt</DependentUpon>
     </Compile>
@@ -242,8 +247,8 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\conrtact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Paramedics\Create.cshtml" />
     <Content Include="Views\Paramedics\Delete.cshtml" />
@@ -260,8 +265,36 @@
     <Content Include="Views\Hospitals\Details.cshtml" />
     <Content Include="Views\Hospitals\Edit.cshtml" />
     <Content Include="Views\Hospitals\Index.cshtml" />
+    <Content Include="Views\helpRequests\Create.cshtml" />
+    <Content Include="Views\helpRequests\Delete.cshtml" />
+    <Content Include="Views\helpRequests\Details.cshtml" />
+    <Content Include="Views\helpRequests\Edit.cshtml" />
+    <Content Include="Views\helpRequests\Index.cshtml" />
+    <Content Include="Views\RequestLogs\Create.cshtml" />
+    <Content Include="Views\RequestLogs\Delete.cshtml" />
+    <Content Include="Views\RequestLogs\Details.cshtml" />
+    <Content Include="Views\RequestLogs\Edit.cshtml" />
+    <Content Include="Views\RequestLogs\Index.cshtml" />
+    <Content Include="Views\ParamedicTeams\Create.cshtml" />
+    <Content Include="Views\ParamedicTeams\Delete.cshtml" />
+    <Content Include="Views\ParamedicTeams\Details.cshtml" />
+    <Content Include="Views\ParamedicTeams\Edit.cshtml" />
+    <Content Include="Views\ParamedicTeams\Index.cshtml" />
+    <Content Include="Views\Announcemets\Create.cshtml" />
+    <Content Include="Views\Announcemets\Delete.cshtml" />
+    <Content Include="Views\Announcemets\Details.cshtml" />
+    <Content Include="Views\Announcemets\Edit.cshtml" />
+    <Content Include="Views\Announcemets\Index.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Admins\Create.cshtml" />
+    <Content Include="Views\Admins\Delete.cshtml" />
+    <Content Include="Views\Admins\Details.cshtml" />
+    <Content Include="Views\Admins\Edit.cshtml" />
+    <Content Include="Views\Admins\Index.cshtml" />
+    <Content Include="Views\Admins\Editnew.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Images\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

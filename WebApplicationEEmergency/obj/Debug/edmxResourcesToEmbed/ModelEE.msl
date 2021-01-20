@@ -73,6 +73,7 @@
     <EntitySetMapping Name="Paramedics">
       <EntityTypeMapping TypeName="EEmergencyDataBaseModel.Paramedic">
         <MappingFragment StoreEntitySet="Paramedic">
+          <ScalarProperty Name="email" ColumnName="email" />
           <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
           <ScalarProperty Name="password" ColumnName="password" />
           <ScalarProperty Name="NIDN" ColumnName="NIDN" />

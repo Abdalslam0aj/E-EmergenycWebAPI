@@ -19,6 +19,8 @@ namespace EEmergencyWepApi.Models
 
         public string status { set; get; }
 
+        public string email { set; get; }
+
         public string notificationToken { set; get; }       
         public int team { set; get; }
 

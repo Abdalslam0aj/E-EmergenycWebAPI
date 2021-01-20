@@ -34,12 +34,13 @@ namespace EEmergencyWebApi.Controllers
                 if (nearlocation)
                 {
                     requestToSet.status = HelpStatus.arrived;
-                    db.HelpRequest.Update(requestToSet);
-                    db.SaveChanges();
+                    
                     GISService service = new GISService(db);
                     Location paramedicLocation = new Location(finished.myLatitude, finished.myLongitude);
                     Hospital hospital = service.findNearestHospital(paramedicLocation);
-
+                    requestToSet.hospital = hospital.hospitalid;
+                    db.HelpRequest.Update(requestToSet);
+                    db.SaveChanges();
                     var token = db.Civilian.Find(requestToSet.civilianPhoneNumber).notificationToken;
                     await Notificationcs.sendNotificatonAsync(token, "paramedic arrived!", "the paramedic has arrived at your location");
                     return hospital;

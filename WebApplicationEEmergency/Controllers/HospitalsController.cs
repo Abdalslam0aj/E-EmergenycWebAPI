@@ -10,6 +10,7 @@ using WebApplicationEEmergency;
 
 namespace WebApplicationEEmergency.Controllers
 {
+    [Authorize]
     public class HospitalsController : Controller
     {
         private EEmergencyDataBaseEntities db = new EEmergencyDataBaseEntities();

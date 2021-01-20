@@ -16,13 +16,23 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <img src="~/Images/EmergencyLogo.png" width="50" height="45">
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    @if (Request.IsAuthenticated)
+                    {
+
+                        <li>@Html.ActionLink("Data operations", "Contact", "Home")</li>
+                        <li>@Html.ActionLink(" Logout  " + User.Identity.Name  , "Logout", "Home")</li>
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Login", "Login", "Home")</li>
+
+                    }
+
                 </ul>
             </div>
         </div>

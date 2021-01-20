@@ -27,6 +27,7 @@ namespace WebApplicationEEmergency
         public string status { get; set; }
         public string notificationToken { get; set; }
         public int Team { get; set; }
+        public string email { get; set; }
     
         public virtual ParamedicTeam ParamedicTeam { get; set; }
         public virtual User User { get; set; }
