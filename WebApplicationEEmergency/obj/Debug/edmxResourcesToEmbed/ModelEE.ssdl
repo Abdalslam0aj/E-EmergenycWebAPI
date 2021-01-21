@@ -233,13 +233,13 @@
   </Association>
   <Association Name="FK_ParamedicTeams_DCD">
     <End Role="DCD" Type="Self.DCD" Multiplicity="1" />
-    <End Role="ParamedicTeams" Type="Self.ParamedicTeams" Multiplicity="0..1" />
+    <End Role="ParamedicTeams" Type="Self.ParamedicTeams" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="DCD">
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="ParamedicTeams">
-        <PropertyRef Name="teamNumber" />
+        <PropertyRef Name="deploymentLocation" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

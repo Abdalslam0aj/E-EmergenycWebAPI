@@ -29,5 +29,6 @@ namespace WebApplicationEEmergency
         public virtual ICollection<Paramedic> Paramedics { get; set; }
         public virtual helpRequest helpRequest { get; set; }
         public virtual Paramedic Paramedic { get; set; }
+        public virtual DCD DCD1 { get; set; }
     }
 }

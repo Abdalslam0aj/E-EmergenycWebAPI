@@ -14,11 +14,19 @@ namespace WebApplicationEEmergency
     
     public partial class DCD
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public DCD()
+        {
+            this.ParamedicTeams = new HashSet<ParamedicTeam>();
+        }
+    
         public int Id { get; set; }
         public string name { get; set; }
         public double latitude { get; set; }
         public double longitude { get; set; }
     
         public virtual ParamedicTeam ParamedicTeam { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ParamedicTeam> ParamedicTeams { get; set; }
     }
 }

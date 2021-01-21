@@ -145,6 +145,7 @@
     <Compile Include="Controllers\HospitalsController.cs" />
     <Compile Include="Controllers\ParamedicsController.cs" />
     <Compile Include="Controllers\ParamedicTeamsController.cs" />
+    <Compile Include="Controllers\ParamedicTeams12Controller.cs" />
     <Compile Include="Controllers\RequestLogsController.cs" />
     <Compile Include="DCD.cs">
       <DependentUpon>ModelEE.tt</DependentUpon>
@@ -292,6 +293,11 @@
     <Content Include="Views\Admins\Edit.cshtml" />
     <Content Include="Views\Admins\Index.cshtml" />
     <Content Include="Views\Admins\Editnew.cshtml" />
+    <Content Include="Views\ParamedicTeams1\Create.cshtml" />
+    <Content Include="Views\ParamedicTeams1\Delete.cshtml" />
+    <Content Include="Views\ParamedicTeams1\Details.cshtml" />
+    <Content Include="Views\ParamedicTeams1\Edit.cshtml" />
+    <Content Include="Views\ParamedicTeams1\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\" />

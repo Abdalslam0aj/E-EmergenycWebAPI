@@ -43,6 +43,7 @@
     <Property Name="latitude" Type="Double" Nullable="false" />
     <Property Name="longitude" Type="Double" Nullable="false" />
     <NavigationProperty Name="ParamedicTeam" Relationship="Self.FK_ParamedicTeams_DCD" FromRole="DCD" ToRole="ParamedicTeams" />
+    <NavigationProperty Name="ParamedicTeams" Relationship="EEmergencyDataBaseModel.FK_ParamedicTeams_DCD1" FromRole="DCD" ToRole="ParamedicTeam" />
   </EntityType>
   <EntityType Name="helpRequest">
     <Key>
@@ -100,6 +101,7 @@
     <NavigationProperty Name="Paramedics" Relationship="Self.FK_Paramedic_ParamedicTeams" FromRole="ParamedicTeams" ToRole="Paramedic" />
     <NavigationProperty Name="helpRequest" Relationship="Self.helpRequestAssigned" FromRole="ParamedicTeams" ToRole="helpRequest" />
     <NavigationProperty Name="Paramedic" Relationship="Self.TeamMembers" FromRole="ParamedicTeams" ToRole="Paramedic" />
+    <NavigationProperty Name="DCD1" Relationship="EEmergencyDataBaseModel.FK_ParamedicTeams_DCD1" FromRole="ParamedicTeam" ToRole="DCD" />
   </EntityType>
   <EntityType Name="RequestLog">
     <Key>
@@ -334,5 +336,21 @@
       <End Role="Paramedic" EntitySet="Paramedics" />
       <End Role="ParamedicTeams" EntitySet="ParamedicTeams" />
     </AssociationSet>
+    <AssociationSet Name="FK_ParamedicTeams_DCD1" Association="EEmergencyDataBaseModel.FK_ParamedicTeams_DCD1">
+      <End Role="DCD" EntitySet="DCDs" />
+      <End Role="ParamedicTeam" EntitySet="ParamedicTeams" />
+    </AssociationSet>
   </EntityContainer>
+  <Association Name="FK_ParamedicTeams_DCD1">
+    <End Type="EEmergencyDataBaseModel.DCD" Role="DCD" Multiplicity="1" />
+    <End Type="EEmergencyDataBaseModel.ParamedicTeam" Role="ParamedicTeam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DCD">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ParamedicTeam">
+        <PropertyRef Name="deploymentLocation" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

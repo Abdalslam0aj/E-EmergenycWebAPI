@@ -50,7 +50,7 @@ namespace WebApplicationEEmergency.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "phoneNumber,password,NIDN,fullname,status,notificationToken,Team")] Paramedic paramedic)
+        public ActionResult Create([Bind(Include = "phoneNumber,password,NIDN,fullname,status,notificationToken,email,Team")] Paramedic paramedic)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +90,7 @@ namespace WebApplicationEEmergency.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "phoneNumber,password,NIDN,fullname,status,notificationToken,Team")] Paramedic paramedic)
+        public ActionResult Edit([Bind(Include = "phoneNumber,password,NIDN,fullname,status,notificationToken,email,Team")] Paramedic paramedic)
         {
             if (ModelState.IsValid)
             {
@@ -128,6 +128,7 @@ namespace WebApplicationEEmergency.Controllers
             User user = db.Users.Find(id);
            
             db.Users.Remove(user);
+            
             db.SaveChanges();
             return RedirectToAction("Index");
         }

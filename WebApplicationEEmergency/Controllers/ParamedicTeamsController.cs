@@ -10,19 +10,18 @@ using WebApplicationEEmergency;
 
 namespace WebApplicationEEmergency.Controllers
 {
-    [Authorize]
     public class ParamedicTeamsController : Controller
     {
         private EEmergencyDataBaseEntities db = new EEmergencyDataBaseEntities();
 
-        // GET: ParamedicTeams
+        // GET: ParamedicTeams1
         public ActionResult Index()
         {
-            var paramedicTeams = db.ParamedicTeams.Include(p => p.DCD);
+            var paramedicTeams = db.ParamedicTeams.Include(p => p.DCD).Include(p => p.DCD1);
             return View(paramedicTeams.ToList());
         }
 
-        // GET: ParamedicTeams/Details/5
+        // GET: ParamedicTeams1/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -37,14 +36,15 @@ namespace WebApplicationEEmergency.Controllers
             return View(paramedicTeam);
         }
 
-        // GET: ParamedicTeams/Create
+        // GET: ParamedicTeams1/Create
         public ActionResult Create()
         {
             ViewBag.teamNumber = new SelectList(db.DCDs, "Id", "name");
+            ViewBag.deploymentLocation = new SelectList(db.DCDs, "Id", "name");
             return View();
         }
 
-        // POST: ParamedicTeams/Create
+        // POST: ParamedicTeams1/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -59,10 +59,11 @@ namespace WebApplicationEEmergency.Controllers
             }
 
             ViewBag.teamNumber = new SelectList(db.DCDs, "Id", "name", paramedicTeam.teamNumber);
+            ViewBag.deploymentLocation = new SelectList(db.DCDs, "Id", "name", paramedicTeam.deploymentLocation);
             return View(paramedicTeam);
         }
 
-        // GET: ParamedicTeams/Edit/5
+        // GET: ParamedicTeams1/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -75,10 +76,11 @@ namespace WebApplicationEEmergency.Controllers
                 return HttpNotFound();
             }
             ViewBag.teamNumber = new SelectList(db.DCDs, "Id", "name", paramedicTeam.teamNumber);
+            ViewBag.deploymentLocation = new SelectList(db.DCDs, "Id", "name", paramedicTeam.deploymentLocation);
             return View(paramedicTeam);
         }
 
-        // POST: ParamedicTeams/Edit/5
+        // POST: ParamedicTeams1/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -92,10 +94,11 @@ namespace WebApplicationEEmergency.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.teamNumber = new SelectList(db.DCDs, "Id", "name", paramedicTeam.teamNumber);
+            ViewBag.deploymentLocation = new SelectList(db.DCDs, "Id", "name", paramedicTeam.deploymentLocation);
             return View(paramedicTeam);
         }
 
-        // GET: ParamedicTeams/Delete/5
+        // GET: ParamedicTeams1/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -110,7 +113,7 @@ namespace WebApplicationEEmergency.Controllers
             return View(paramedicTeam);
         }
 
-        // POST: ParamedicTeams/Delete/5
+        // POST: ParamedicTeams1/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
